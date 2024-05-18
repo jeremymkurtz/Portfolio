@@ -15,24 +15,41 @@ const plusHorizontalVariants = {
     closed: {
         opacity: 1,
         width: 6,
-
+        x: "calc(50% - 3px)",
+        transition: {
+            width: { duration: 0.5 },
+            x: { duration: 0.5 }
+        }
     },
     opened: {
         opacity: 1,
         width: 30,
-        x: "calc(32% - 28px)"
+        x: "calc(50% - 15px)",
+        transition: {
+            width: { duration: 0.5 },
+            x: { duration: 0.5 }
+        }
     },
 };
+
 const plusVerticalVariants = {
     closed: {
         opacity: 1,
         height: 6,
-
+        y: "calc(50% - 3px)",
+        transition: {
+            height: { duration: 0.5 },
+            y: { duration: 0.5 }
+        }
     },
     opened: {
         opacity: 1,
         height: 30,
-        y: "calc(32% - 28px)"
+        y: "calc(50% - 15px)",
+        transition: {
+            height: { duration: 0.5 },
+            y: { duration: 0.5 }
+        }
     },
 };
 
@@ -42,10 +59,11 @@ const AnimatedSVG = () => (
         <motion.div
             className={"size-fit p-5"}
             variants={divVariants}
-            initial="closed"
-            animate="opened"
-            exit="closed"
-            transition={{repeat: Infinity, repeatType: "mirror", repeatDelay: 3}}>
+            // initial="closed"
+            // animate="opened"
+            // exit="closed"
+            // transition={{repeat: Infinity, repeatType: "mirror", repeatDelay: 3}}>
+        >
             <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"
                         className="opacity-100 fill-none stroke-current text-gray-500 stroke-2 block">
                 <title>Menu</title>
@@ -115,7 +133,7 @@ const AnimatedSVG = () => (
                 />
                 <AnimatePresence>
                     <motion.rect
-                        x="21"
+                        x="0"
                         y="21"
                         height="6px"
                         rx="3"
@@ -123,12 +141,11 @@ const AnimatedSVG = () => (
                         variants={plusHorizontalVariants}
                         initial="closed"
                         animate="opened"
-                        transition={{repeat: Infinity, repeatType: "mirror", repeatDelay: 3}}
                     />
                 </AnimatePresence>
                 <motion.rect
                     x="21"
-                    y="21"
+                    y="0%"
                     width="6px"
                     height="30px"
                     rx="3"
@@ -136,7 +153,6 @@ const AnimatedSVG = () => (
                     variants={plusVerticalVariants}
                     initial="closed"
                     animate="opened"
-                    transition={{repeat: Infinity, repeatType: "mirror", repeatDelay: 3}}
                 />
             </motion.svg>
         </motion.div>
