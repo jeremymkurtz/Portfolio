@@ -1,10 +1,5 @@
 import {AnimatePresence, motion } from 'framer-motion';
-
-const circleVariants = {
-  hidden: { opacity: 0, x: -24, y: -24 },
-  visible: { opacity: 1, x: 0, y: 0 },
-
-};
+import {useState} from "react";
 
 const divVariants = {
   closed: { opacity: 1 },
@@ -17,8 +12,8 @@ const plusHorizontalVariants = {
         width: 6,
         x: "calc(50% - 3px)",
         transition: {
-            width: { duration: 0.5 },
-            x: { duration: 0.5 }
+            width: { duration: 0.25 },
+            x: { duration: 0.25 }
         }
     },
     opened: {
@@ -26,8 +21,8 @@ const plusHorizontalVariants = {
         width: 30,
         x: "calc(50% - 15px)",
         transition: {
-            width: { duration: 0.5 },
-            x: { duration: 0.5 }
+            width: { duration: 0.25 },
+            x: { duration: 0.25 }
         }
     },
 };
@@ -38,8 +33,8 @@ const plusVerticalVariants = {
         height: 6,
         y: "calc(50% - 3px)",
         transition: {
-            height: { duration: 0.5 },
-            y: { duration: 0.5 }
+            height: { duration: 0.25 },
+            y: { duration: 0.25 }
         }
     },
     opened: {
@@ -47,91 +42,126 @@ const plusVerticalVariants = {
         height: 30,
         y: "calc(50% - 15px)",
         transition: {
-            height: { duration: 0.5 },
-            y: { duration: 0.5 }
+            height: { duration: 0.25 },
+            y: { duration: 0.25 }
         }
     },
 };
 
 
-const AnimatedSVG = () => (
-    <AnimatePresence>
-        <motion.div
-            className={"size-fit p-5"}
-            variants={divVariants}
-            // initial="closed"
-            // animate="opened"
-            // exit="closed"
-            // transition={{repeat: Infinity, repeatType: "mirror", repeatDelay: 3}}>
-        >
-            <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="32" height="32"
-                        className="opacity-100 fill-none stroke-current text-gray-500 stroke-2 block">
-                <title>Menu</title>
-                <motion.circle
-                    cx="12"
-                    cy="12"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="24"
-                    cy="12"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="36"
-                    cy="12"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="36"
-                    cy="24"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="36"
-                    cy="36"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="24"
-                    cy="36"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="12"
-                    cy="36"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <motion.circle
-                    cx="12"
-                    cy="24"
-                    r="3"
-                    variants={circleVariants}
-                    initial="hidden"
-                    animate="visible"
-                />
-                <AnimatePresence>
+
+function AnimatedSVG() {
+    const [isOpen, setIsOpen] = useState(false);
+    const [isHovered, setIsHovered] = useState(false);
+
+    const toggleNavBar = () => {
+        setIsOpen(!isOpen);
+    }
+
+
+    return(
+        <AnimatePresence>
+            <motion.div
+                className={"size-fit m-5 onHover: cursor-pointer"}
+                variants={divVariants}
+                onClick={toggleNavBar}
+                animate={isOpen ? "opened" : "closed"}
+                onHoverStart={() => setIsHovered(true)}
+                onHoverEnd={() => setIsHovered(false)}
+            >
+                <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="50" height="50"
+                            className="opacity-100 fill-none stroke-current text-gray-500 stroke-2 block">
+                    <title>Menu</title>
+                    {/*top left*/}
+                    <motion.circle
+                        cx="12"
+                        cy="12"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: -24, y: -24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isOpen ? "hidden" : "visible"}
+                    />
+                    {/*top middle*/}
+                    <motion.circle
+                        cx="24"
+                        cy="12"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: 0, y: -24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                    />
+                    {/*top right*/}
+                    <motion.circle
+                        cx="36"
+                        cy="12"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: 24, y: -24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isOpen ? "hidden" : "visible"}
+                    />
+                    {/*middle left*/}
+                    <motion.circle
+                        cx="12"
+                        cy="24"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: -24, y: 0 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                    />
+                    {/*middle right*/}
+                    <motion.circle
+                        cx="36"
+                        cy="24"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: 24, y: 0 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                    />
+
+                    {/*bot left*/}
+                    <motion.circle
+                        cx="12"
+                        cy="36"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: -24, y: 24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isOpen ? "hidden" : "visible"}
+                    />
+                    {/*bot middle*/}
+                    <motion.circle
+                        cx="24"
+                        cy="36"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: 0, y: 24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                    />
+                    {/*bottom right*/}
+                    <motion.circle
+                        cx="36"
+                        cy="36"
+                        r="3"
+                        variants={{
+                            hidden: { opacity: 0, x: 24, y: 24 },
+                            visible: { opacity: 1, x: 0, y: 0 },
+                        }}
+                        animate={isOpen ? "hidden" : "visible"}
+                    />
+
                     <motion.rect
                         x="0"
                         y="21"
@@ -139,25 +169,25 @@ const AnimatedSVG = () => (
                         rx="3"
                         ry="3"
                         variants={plusHorizontalVariants}
-                        initial="closed"
-                        animate="opened"
+                        animate={isOpen || isHovered ? "opened" : "closed"}
                     />
-                </AnimatePresence>
-                <motion.rect
-                    x="21"
-                    y="0%"
-                    width="6px"
-                    height="30px"
-                    rx="3"
-                    ry="3"
-                    variants={plusVerticalVariants}
-                    initial="closed"
-                    animate="opened"
-                />
-            </motion.svg>
-        </motion.div>
+                    <motion.rect
+                        x="21"
+                        y="0%"
+                        width="6px"
+                        height="30px"
+                        rx="3"
+                        ry="3"
+                        style={{transform: "translateX(calc(50% -3px)) translateY(0px)"}}
+                        variants={plusVerticalVariants}
+                        initial="closed"
+                        animate={isOpen || isHovered ? "opened" : "closed"}
+                    />
+                </motion.svg>
+            </motion.div>
 
-    </AnimatePresence>
-);
+        </AnimatePresence>
+    );
+}
 
 export default AnimatedSVG;
