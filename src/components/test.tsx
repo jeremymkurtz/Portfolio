@@ -10,7 +10,7 @@ const plusHorizontalVariants = {
     closed: {
         opacity: 1,
         width: 6,
-        x: "calc(50% - 3px)",
+        x: "calc(0% - 0px)", // Adjusted to keep the center at 21
         transition: {
             width: { duration: 0.25 },
             x: { duration: 0.25 }
@@ -19,7 +19,7 @@ const plusHorizontalVariants = {
     opened: {
         opacity: 1,
         width: 30,
-        x: "calc(50% - 15px)",
+        x: "calc(0% - 12px)", // Adjusted to keep the center at 21
         transition: {
             width: { duration: 0.25 },
             x: { duration: 0.25 }
@@ -31,7 +31,7 @@ const plusVerticalVariants = {
     closed: {
         opacity: 1,
         height: 6,
-        y: "calc(50% - 3px)",
+        y: "calc(0% - 0px)",
         transition: {
             height: { duration: 0.25 },
             y: { duration: 0.25 }
@@ -40,7 +40,7 @@ const plusVerticalVariants = {
     opened: {
         opacity: 1,
         height: 30,
-        y: "calc(50% - 15px)",
+        y: "calc(0% - 12px)",
         transition: {
             height: { duration: 0.25 },
             y: { duration: 0.25 }
@@ -78,8 +78,8 @@ function AnimatedSVG() {
                         cy="12"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: -24, y: -24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: -24, y: -24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
                         animate={isOpen ? "hidden" : "visible"}
                     />
@@ -89,10 +89,10 @@ function AnimatedSVG() {
                         cy="12"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: 0, y: -24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: 0, y: -24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                        animate={isHovered || isOpen ? "hidden" : "visible"}
                     />
                     {/*top right*/}
                     <motion.circle
@@ -100,8 +100,8 @@ function AnimatedSVG() {
                         cy="12"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: 24, y: -24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: 24, y: -24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
                         animate={isOpen ? "hidden" : "visible"}
                     />
@@ -111,10 +111,10 @@ function AnimatedSVG() {
                         cy="24"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: -24, y: 0 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: -24, y: 0},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                        animate={isHovered || isOpen ? "hidden" : "visible"}
                     />
                     {/*middle right*/}
                     <motion.circle
@@ -122,10 +122,10 @@ function AnimatedSVG() {
                         cy="24"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: 24, y: 0 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: 24, y: 0},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                        animate={isHovered || isOpen ? "hidden" : "visible"}
                     />
 
                     {/*bot left*/}
@@ -134,8 +134,8 @@ function AnimatedSVG() {
                         cy="36"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: -24, y: 24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: -24, y: 24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
                         animate={isOpen ? "hidden" : "visible"}
                     />
@@ -145,10 +145,10 @@ function AnimatedSVG() {
                         cy="36"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: 0, y: 24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: 0, y: 24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen  ? "hidden" : "visible"}
+                        animate={isHovered || isOpen ? "hidden" : "visible"}
                     />
                     {/*bottom right*/}
                     <motion.circle
@@ -156,31 +156,32 @@ function AnimatedSVG() {
                         cy="36"
                         r="3"
                         variants={{
-                            hidden: { opacity: 0, x: 24, y: 24 },
-                            visible: { opacity: 1, x: 0, y: 0 },
+                            hidden: {opacity: 0, x: 24, y: 24},
+                            visible: {opacity: 1, x: 0, y: 0},
                         }}
                         animate={isOpen ? "hidden" : "visible"}
                     />
-
+                    {/*horizontal*/}
                     <motion.rect
-                        x="0"
+                        x="21"
                         y="21"
+                        width="6px"
                         height="6px"
                         rx="3"
                         ry="3"
                         variants={plusHorizontalVariants}
                         animate={isOpen || isHovered ? "opened" : "closed"}
                     />
+                    {/*vertical*/}
                     <motion.rect
+                        id = "test"
                         x="21"
-                        y="0%"
+                        y="21"
                         width="6px"
-                        height="30px"
+                        height="6px"
                         rx="3"
                         ry="3"
-                        style={{transform: "translateX(calc(50% -3px)) translateY(0px)"}}
                         variants={plusVerticalVariants}
-                        initial="closed"
                         animate={isOpen || isHovered ? "opened" : "closed"}
                     />
                 </motion.svg>
