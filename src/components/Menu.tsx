@@ -40,7 +40,7 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                 return (
                     <div className={"overflow-hidden"}>
                         <motion.div
-                            key={`menu-content` + index}
+                            key={index}
                             initial={{y: -50, opacity: 1}}
                             animate={animationState}
                             exit={{y: -50, opacity: 1}}
