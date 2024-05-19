@@ -1,6 +1,6 @@
 "use client"
 import {AnimatePresence, motion } from 'framer-motion';
-import {useCallback, useState} from "react";
+import {useState} from "react";
 
 const divVariants = {
   closed: { opacity: 1 },

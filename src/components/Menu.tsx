@@ -27,20 +27,21 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
     const [animationState, setAnimationState] = useState({ y: -50, opacity: 0 });
 
     useEffect(() => {
-        if (props.isOpen) {
-            setAnimationState({ y: 0, opacity: 1 });
-        } else {
-            setAnimationState({ y: -50, opacity: 1 });
-        }
+        setTimeout(() => { // Delay the content animation
+            if (props.isOpen) {
+                setAnimationState({ y: 0, opacity: 1 });
+            } else {
+                setAnimationState({ y: -50, opacity: 1 });
+            }
+        }, props.isOpen ? 300 : 0); // Delay is 300ms when opening, no delay when closing
     }, [props.isOpen]);
 
     return (
         <>
             {NavLink.map((link, index) => {
                 return (
-                    <div className={"overflow-hidden"}>
+                    <div className={"overflow-hidden"} key={index}>
                         <motion.div
-                            key={`menu-content` + index}
                             initial={{y: -50, opacity: 1}}
                             animate={animationState}
                             exit={{y: -50, opacity: 1}}
@@ -51,12 +52,10 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                             </Link>
                         </motion.div>
                     </div>
-
                 )
             })}
-
-</>
-)
+        </>
+    )
 }
 
 export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
@@ -65,6 +64,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
             id="menu"
             className={`z-10 top-0 left-0 fixed h-screen w-full pointer-events-auto block`}
             animate={{ backdropFilter: props.isOpen ? "blur(5px)" : "blur(0px)" }}
+            transition={{ duration: props.isOpen ? 0.3 : 0.6 }}
         >
             <div id="menu-content"
                  className="relative flex flex-col items-center justify-center h-full overflow-hidden">
