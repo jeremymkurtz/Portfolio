@@ -38,9 +38,8 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
         <>
             {NavLink.map((link, index) => {
                 return (
-                    <div className={"overflow-hidden"}>
+                    <div className={"overflow-hidden"} key={index}>
                         <motion.div
-                            key={index}
                             initial={{y: -50, opacity: 1}}
                             animate={animationState}
                             exit={{y: -50, opacity: 1}}
