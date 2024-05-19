@@ -51,21 +51,17 @@ const plusVerticalVariants = {
 
 
 
-function Nav(props:{size:number}) {
-    const [isOpen, setIsOpen] = useState(false);
-    const [isHovered, setIsHovered] = useState(false);
+function Nav(props:{size:number, isOpen: boolean, toggle: () => void}) {
+   const [isHovered, setIsHovered] = useState(false);
 
-    const toggleIsOpen = useCallback(() => {
-        setIsOpen(prevIsOpen => !prevIsOpen);
-    }, []);
 
     return(
         <AnimatePresence>
             <motion.div
-                className={"size-fit m-5 onHover: cursor-pointer"}
+                className={"absolute size-fit z-50 m-5 onHover: cursor-pointer"}
                 variants={divVariants}
-                onClick={toggleIsOpen}
-                animate={isOpen ? "opened" : "closed"}
+                onClick={props.toggle}
+                animate={props.isOpen ? "opened" : "closed"}
                 onHoverStart={() => setIsHovered(true)}
                 onHoverEnd={() => setIsHovered(false)}
             >
@@ -81,7 +77,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: -24, y: -24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isOpen ? "hidden" : "visible"}
+                        animate={props.isOpen ? "hidden" : "visible"}
                     />
                     {/*top middle*/}
                     <motion.circle
@@ -92,7 +88,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: 0, y: -24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen ? "hidden" : "visible"}
+                        animate={isHovered || props.isOpen ? "hidden" : "visible"}
                     />
                     {/*top right*/}
                     <motion.circle
@@ -103,7 +99,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: 24, y: -24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isOpen ? "hidden" : "visible"}
+                        animate={props.isOpen ? "hidden" : "visible"}
                     />
                     {/*middle left*/}
                     <motion.circle
@@ -114,7 +110,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: -24, y: 0},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen ? "hidden" : "visible"}
+                        animate={isHovered || props.isOpen ? "hidden" : "visible"}
                     />
                     {/*middle right*/}
                     <motion.circle
@@ -125,7 +121,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: 24, y: 0},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen ? "hidden" : "visible"}
+                        animate={isHovered || props.isOpen ? "hidden" : "visible"}
                     />
 
                     {/*bot left*/}
@@ -137,7 +133,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: -24, y: 24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isOpen ? "hidden" : "visible"}
+                        animate={props.isOpen ? "hidden" : "visible"}
                     />
                     {/*bot middle*/}
                     <motion.circle
@@ -148,7 +144,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: 0, y: 24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isHovered || isOpen ? "hidden" : "visible"}
+                        animate={isHovered || props.isOpen ? "hidden" : "visible"}
                     />
                     {/*bottom right*/}
                     <motion.circle
@@ -159,7 +155,7 @@ function Nav(props:{size:number}) {
                             hidden: {opacity: 0, x: 24, y: 24},
                             visible: {opacity: 1, x: 0, y: 0},
                         }}
-                        animate={isOpen ? "hidden" : "visible"}
+                        animate={props.isOpen ? "hidden" : "visible"}
                     />
                     {/*horizontal*/}
                     <motion.rect
@@ -170,7 +166,7 @@ function Nav(props:{size:number}) {
                         rx="3"
                         ry="3"
                         variants={plusHorizontalVariants}
-                        animate={isOpen || isHovered ? "opened" : "closed"}
+                        animate={props.isOpen || isHovered ? "opened" : "closed"}
                     />
                     {/*vertical*/}
                     <motion.rect
@@ -182,7 +178,7 @@ function Nav(props:{size:number}) {
                         rx="3"
                         ry="3"
                         variants={plusVerticalVariants}
-                        animate={isOpen || isHovered ? "opened" : "closed"}
+                        animate={props.isOpen || isHovered ? "opened" : "closed"}
                     />
                 </motion.svg>
             </motion.div>
