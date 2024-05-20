@@ -58,7 +58,7 @@ function Nav(props:{size:number, isOpen: boolean, toggle: () => void}) {
     return(
         <AnimatePresence>
             <motion.div
-                className={"absolute size-fit z-50 m-5 onHover: cursor-pointer"}
+                className={"block size-fit onHover: cursor-pointer"}
                 variants={divVariants}
                 onClick={props.toggle}
                 animate={props.isOpen ? "opened" : "closed"}
