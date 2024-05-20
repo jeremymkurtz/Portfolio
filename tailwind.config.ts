@@ -13,6 +13,14 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      backdropFilter: {
+        'blur': 'blur(5px)'
+      },
+    },
+    variants: {
+      extend: {
+        backdropFilter: ['responsive'] // or other variants you need
+      }
     },
   },
   plugins: [],
