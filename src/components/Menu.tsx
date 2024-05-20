@@ -64,7 +64,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
         <motion.div
             id="menu"
             className={`z-10 top-0 left-0 fixed h-screen w-full pointer-events-auto block`}
-            animate={{ backdropFilter: props.isOpen ? "blur(5px)" : "blur(0px)" }}
+            animate={{ backdropFilter: props.isOpen ? "blur(5px) contrast(60%)" : "blur(0px) contrast(60%)" }}
             transition={{ duration: props.isOpen ? 0.3 : 0.6 }} // Blur happens first when opening, last when closing
         >
             <div id="menu-content"
