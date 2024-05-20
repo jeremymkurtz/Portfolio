@@ -46,7 +46,7 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                             initial={{y: -50, opacity: 1}}
                             animate={animationState}
                             exit={{y: -50, opacity: 1}}
-                            transition={{type: 'spring', stiffness: 100, damping: 20, delay: index * 0.05, duration: 0.1}}
+                            transition={{type: 'spring', stiffness: 100, damping: 20, delay: index * 0.1, duration: 0.1}}
                         >
                             <Link href={link.href} onClick={props.toggle}>
                                 {link.text}
@@ -63,7 +63,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
     return (
         <motion.div
             id="menu"
-            className={`z-10 top-0 left-0 fixed h-screen w-full pointer-events-auto block backdrop-blur-sm`}
+            className={`z-10 top-0 left-0 fixed h-screen w-full pointer-events-auto block backdrop-blur-sm opacity-0`}
             animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)"}}
             transition={{ duration: 0.3}} // Blur happens first when opening, last when closing
         >
