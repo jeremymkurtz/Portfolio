@@ -28,9 +28,8 @@ const NavLink = [
 
 const variants = {
   open: { y: 0, opacity: 1 },
-  closed: { y: -30, opacity: 0 },
+  closed: { y: -30, opacity: 1 },
 };
-
 function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
     return (
         <>
@@ -41,7 +40,7 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                             initial="closed"
                             animate={props.isOpen ? "open" : "closed"}
                             variants={variants}
-                            transition={{type: 'spring', stiffness: 100, damping: 20, delay: index * 0.1, duration: 0.4}}
+                            transition={{type: 'spring', stiffness: 100, damping: 20, delay: props.isOpen ? (index * 0.1 + 0.4) : index * 0.1 , duration: 0.01}}
                         >
                             <Link href={link.href} onClick={props.toggle}>
                                 {link.text}
@@ -54,29 +53,14 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
     )
 }
 
-
 export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
-    const [display, setDisplay] = React.useState('hidden');
-
-    const handleAnimationComplete = () => {
-        if (!props.isOpen) {
-            setDisplay('hidden');
-        }
-    };
-
-    React.useEffect(() => {
-        if (props.isOpen) {
-            setDisplay('block');
-        }
-    }, [props.isOpen]);
-
     return (
         <motion.div
             id="menu"
-            className={`z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto ${display} opacity-0`}
+            className={`z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto`}
             style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
-            animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)"}}
-            transition={{ duration: 0.4, onComplete: handleAnimationComplete }} // Blur happens first when opening, last when closing
+            animate={{ opacity: props.isOpen ? 1 : 0 }}
+            transition={{ duration: props.isOpen ? 0.4 : 1.2 }} // Blur happens first when opening, last when closing
         >
             <div id="menu-content"
                  className="relative flex flex-col items-center justify-center h-full overflow-hidden">
