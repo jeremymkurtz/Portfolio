@@ -76,7 +76,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
             className={`z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto ${display} opacity-0`}
             style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
             animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.5)" : "rgba(0, 0, 0, 0)"}}
-            transition={{ duration: 0.2, onComplete: handleAnimationComplete }} // Blur happens first when opening, last when closing
+            transition={{ duration: 0.4, onComplete: handleAnimationComplete }} // Blur happens first when opening, last when closing
         >
             <div id="menu-content"
                  className="relative flex flex-col items-center justify-center h-full overflow-hidden">
