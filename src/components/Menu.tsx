@@ -54,13 +54,28 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
 }
 
 export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
+    const [display, setDisplay] = React.useState('hidden');
+
+    const handleAnimationComplete = () => {
+        if (!props.isOpen) {
+            setDisplay('hidden');
+        }
+    };
+
+    React.useEffect(() => {
+        if (props.isOpen) {
+            setDisplay('block');
+        }
+    }, [props.isOpen]);
+
+
     return (
         <motion.div
             id="menu"
-            className={`z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto`}
+            className={`z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto ${props.isOpen ? 'block' : 'hidden'}`}
             style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
             animate={{ opacity: props.isOpen ? 1 : 0 }}
-            transition={{ duration: props.isOpen ? 0.4 : 1.2 }} // Blur happens first when opening, last when closing
+            transition={{ duration: props.isOpen ? 0.4 : 1.2, onComplete: handleAnimationComplete}} // Blur happens first when opening, last when closing
         >
             <div id="menu-content"
                  className="relative flex flex-col items-center justify-center h-full overflow-hidden">
