@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import Menu from "@/components/Menu";
-import Nav from "@/components/Nav";
-import ThemeToggle from "@/components/ThemeToggle";
+import Menu from "@/components/ui/navigation/Menu";
+import Nav from "@/components/ui/navigation/header/Nav";
+import ThemeToggle from "@/components/ui/navigation/header/ThemeToggle";
 
 
-const Navigation = () => {
+const UserInterface = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => {
         setIsOpen(!isOpen);
@@ -27,4 +27,4 @@ const Navigation = () => {
     );
 };
 
-export default Navigation;
+export default UserInterface;
