@@ -27,8 +27,8 @@ const NavLink = [
 
 
 const variants = {
-  open: { y: 0, opacity: 1 },
-  closed: { y: -30, opacity: 1 },
+  open: { y: 0, opacity: 1},
+  closed: { y: -30 , opacity: 0},
 };
 function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
     return (
@@ -74,8 +74,8 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
             id="menu"
             className={`text-primary dark:text-primaryDark z-20 top-0 left-0 fixed h-screen w-full pointer-events-auto ${display}`}
             style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
-            animate={{ opacity: props.isOpen ? 1 : 0 }}
-            transition={{ duration: props.isOpen ? 0.4 : 1.2, onComplete: handleAnimationComplete}} // Blur happens first when opening, last when closing
+            animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"}} //DO NOT DELETE BACKGROUND INTRODUCES BLIP
+            transition={{ duration: props.isOpen ? 0.4 :1.2, onComplete: handleAnimationComplete }}
         >
             <div id="menu-content"
                  className="relative flex flex-col items-center justify-center h-full overflow-hidden">
