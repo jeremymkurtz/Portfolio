@@ -2,24 +2,13 @@
 import { useState } from "react";
 import Menu from "@/components/Menu";
 import Nav from "@/components/Nav";
-import LightDark from "@/components/light-dark";
+import ThemeToggle from "@/components/ThemeToggle";
 
 
 const Navigation = () => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => {
         setIsOpen(!isOpen);
-    };
-    const [theme, setTheme] = useState("light");
-    const toggleTheme = () => {
-        if(theme === "light"){
-            setTheme("dark");
-            console.log(theme);
-        }
-        else{
-            setTheme("light");
-            console.log(theme);
-        }
     };
     return (
         <>
@@ -29,13 +18,9 @@ const Navigation = () => {
                         <Nav size={40} toggle={toggle} isOpen={isOpen}/>
                     </div>
                     <div id={"right"} className={"flex flex-row"}>
-                        <LightDark size={30} toggle={toggleTheme} theme={theme}/>
+                        <ThemeToggle size={30}/>
                     </div>
                 </div>
-
-
-
-
             </header>
             <Menu isOpen={isOpen} toggle={toggle} />
         </>

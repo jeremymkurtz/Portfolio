@@ -20,11 +20,11 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={inter.className}>
-        <Navigation/>
-        <div className={"w-full h-screen flex justify-center items-center "}>
-            {children}
-        </div>
+        <body className={`${inter.className} dark: bg-gray-900 `}>
+            <Navigation/>
+            <div className={"bg-background dark:bg-backgroundDark dark:text-primaryDark w-full h-screen flex justify-center items-center "}>
+                {children}
+            </div>
         </body>
         </html>
     );
