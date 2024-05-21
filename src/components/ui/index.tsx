@@ -13,8 +13,8 @@ const UserInterface = () => {
     };
     return (
         <>
-            <header className={"fixed z-50 top-6 sm:top-24 left-0 right-0"}>
-                <div id={"header content"} className={"flex flex-row px-7 sm:px-24 justify-between"}>
+            <header className={"fixed z-50 top-6 sm:top-12 md:top-24 left-0 right-0"}>
+                <div id={"header content"} className={"flex flex-row px-7 sm:px-12 md:px-24 justify-between"}>
                     <div id={"left"} className={"flex flex-row"}>
                         <Logo/>
                     </div>
