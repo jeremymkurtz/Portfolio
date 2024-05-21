@@ -25,7 +25,7 @@ export default function ThemeToggle(props:{size:number}){
                     className="block icons-style mini-icons cursor-pointer" onClick={() => {
             setDarkMode(!darkMode);
         }}
-                    stroke={`${darkMode ? "#FFFFFF" : "#000000"}`}
+                    stroke={`${darkMode ? 'var(--primaryDark)' : 'var(--primary)'}`}
                     fill={"none"}
                     strokeWidth={"1.5"}
                     strokeLinecap={"round"}

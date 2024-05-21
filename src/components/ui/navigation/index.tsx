@@ -17,7 +17,7 @@ const Navigation = () => {
                     <div id={"left"} className={"flex flex-row"}>
                         <Nav size={40} toggle={toggle} isOpen={isOpen}/>
                     </div>
-                    <div id={"right"} className={"flex flex-row"}>
+                    <div id={"right"} className={"flex flex-row items-center justify-content"}>
                         <ThemeToggle size={30}/>
                     </div>
                 </div>

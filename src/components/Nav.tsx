@@ -66,7 +66,9 @@ function Nav(props:{size:number, isOpen: boolean, toggle: () => void}) {
                 onHoverEnd={() => setIsHovered(false)}
             >
                 <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width={props.size} height={props.size}
-                            className="opacity-100 fill-none stroke-current text-gray-500 stroke-2 block hover: cursor-pointer">
+                            className="opacity-100 fill-none text-gray-500 stroke-2 block hover: cursor-pointer stroke-primary dark:stroke-primaryDark">
+
+
                     <title>Menu</title>
                     {/*top left*/}
                     <motion.circle
