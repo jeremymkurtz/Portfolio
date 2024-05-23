@@ -7,9 +7,6 @@
     font-variation-settings: "wdth" 150;
     transition: font-variation-settings 0.5s ease-in-out;
 }
-.wide:hover {
-    font-variation-settings: "wdth" 100;
-}
 
 .trigger:hover .wide {
     font-variation-settings: "wdth" 100;
