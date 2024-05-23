@@ -13,7 +13,7 @@ const NavLink = [
     },
     {
         href: "/projects",
-        text: <WidenAnimator text={"Projects"} indexes={[0, 4]}/>
+        text: <WidenAnimator text={"Work"} indexes={[2]}/>
     },
     {
         href: "/about",
@@ -21,7 +21,7 @@ const NavLink = [
     },
     {
         href: "/contact",
-        text: <WidenAnimator text={"Contact"} indexes={[1, 5]}/>
+        text: <WidenAnimator text={"Contact"} indexes={[5]}/>
     }
 ]
 
@@ -86,7 +86,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
         >
             <div id="menu-content"
                  className="relative flex flex-col  h-fit size-fit overflow-hidden justify-center
-                 ml-10  text-6xl text-left md:ml-[20%] md:start-0 lg:text-7xl">
+                 px-7 text-6xl text-left md:ml-[20%] md:start-0 lg:text-7xl">
                 <nav>
                     <MenuContent isOpen={props.isOpen} toggle={props.toggle}/>
                 </nav>
