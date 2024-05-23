@@ -22,10 +22,9 @@ export default function RootLayout({
         <html lang="en">
         <body className={`${inter.className} bg-background dark:bg-backgroundDark w-screen h-screen`} style={{ WebkitOverflowScrolling: 'auto' }}>
             <UserInterface/>
-            {children}
-            {/*<div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>*/}
-            {/*    */}
-            {/*</div>*/}
+            <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
+                {children}
+            </div>
         </body>
         </html>
     );
