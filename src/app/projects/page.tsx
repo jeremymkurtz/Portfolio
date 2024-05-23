@@ -1,7 +1,9 @@
+import WidenAnimator from "@/components/WidenAnimator";
+
 export default function Projects(){
     return (
         <div>
-            <h1>Projects</h1>
+            <WidenAnimator indexes={[0,2]} text={"Projects"} cn={"text-4xl font-black uppercase"}/>
         </div>
     )
 }

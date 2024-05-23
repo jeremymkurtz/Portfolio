@@ -1,9 +1,10 @@
 import LinkUnderline from "@/components/LinkUnderline";
+import WidenAnimator from "@/components/WidenAnimator";
 
 export default function Contact() {
     return (
         <div className={"text-lg"}>
-            <h1 className="text-3xl font-semibold">Contact</h1>
+            <WidenAnimator indexes={[0, 2]} text={"Contact"} cn={"text-4xl font-black uppercase"}/>
             <LinkUnderline useLink={true} href={"mailto:kurtzjeremy126@gmail.com"}>
                 Email: kurtzjeremy126@gmail.com
             </LinkUnderline>

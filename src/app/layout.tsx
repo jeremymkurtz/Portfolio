@@ -1,11 +1,10 @@
 
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import React from "react";
 import UserInterface from "../components/ui";
+import {anybody, inter} from "./fonts";
 
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
     title: "Jeremy Kurtz",
@@ -20,9 +19,10 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={`${inter.className} bg-background dark:bg-backgroundDark w-screen h-screen`} style={{ WebkitOverflowScrolling: 'auto' }}>
-            <UserInterface/>
-            <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
+        <body className={`${inter.variable} ${anybody.variable} bg-background dark:bg-backgroundDark w-screen h-screen`}
+              style={{WebkitOverflowScrolling: 'auto'}}>
+        <UserInterface/>
+        <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
                 {children}
             </div>
         </body>

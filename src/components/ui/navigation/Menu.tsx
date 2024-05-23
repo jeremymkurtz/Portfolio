@@ -2,24 +2,26 @@
 
 import {motion} from "framer-motion";
 import React from "react";
-import LinkUnderline from "@/components/LinkUnderline";
+import Link from "next/link";
+import WidenAnimator from "@/components/WidenAnimator";
 
 const NavLink = [
     {
         href: "/",
-        text: "Home"
-    },
-    {
-        href: "/about",
-        text: "About"
+        text: <div className={"trigger flex flex-row h-fit"}>H<h1 className={"h-fit wide"}>O</h1>ME</div>,
+
     },
     {
         href: "/projects",
-        text: "Projects"
+        text: <WidenAnimator text={"Projects"} indexes={[0, 4]}/>
+    },
+    {
+        href: "/about",
+        text: <WidenAnimator text={"About"} indexes={[1, 4]}/>
     },
     {
         href: "/contact",
-        text: "Contact"
+        text: <WidenAnimator text={"Contact"} indexes={[1, 5]}/>
     }
 ]
 
@@ -42,10 +44,13 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                             variants={variants}
                             transition={{type: 'spring', stiffness: 100, damping: 20, delay: props.isOpen ? (index * 0.1 + 0.4) : index * 0.1 , duration: 0.01}}
                         >
-                            <LinkUnderline href={link.href} useLink={true}>
-                                <text className="text-sm">0{index}</text>
-                                {link.text}
-                            </LinkUnderline>
+
+                            <Link href={link.href} onClick={props.toggle}>
+                                <div className="flex flex-row">
+                                    <h2 className="text-sm bottom-[8px] md:bottom-[10px] self-end relative">0{index}</h2>
+                                    {link.text}
+                                </div>
+                            </Link>
                         </motion.div>
                     </div>
                 )
@@ -73,7 +78,7 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
     return (
         <motion.div
             id="menu"
-            className={`flex text-primary dark:text-primaryDark z-20 top-0 left-0 fixed h-full w-full pointer-events-auto items-center sm:justify-center md:justify-start ${display}`}
+            className={`flex font-Anybody font-black uppercase text-primary dark:text-primaryDark z-20 top-0 left-0 fixed h-full w-full pointer-events-auto items-center sm:justify-center md:justify-start ${display}`}
             style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
             animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"}} //DO NOT DELETE BACKGROUND INTRODUCES BLIP
             transition={{ duration: props.isOpen ? 0.4 :1.2, onComplete: handleAnimationComplete }}

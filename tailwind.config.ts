@@ -12,6 +12,11 @@ const config: Config = {
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)'],
+        anybody: ['var(--font-anybody)'],
+        Anybody: ['anybody','var(--font-anybody)'],
+      },
       colors: {
         "primary": '#606887',
         "secondary": '#293245',
