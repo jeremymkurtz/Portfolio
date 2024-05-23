@@ -20,9 +20,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={`${inter.className} bg-background dark:bg-backgroundDark `}>
+        <body className={`${inter.className} bg-background dark:bg-backgroundDark w-screen h-screen`}>
             <UserInterface/>
-            <div className={" text-primary dark:text-primaryDark w-full h-screen flex justify-center items-center "}>
+            <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
                 {children}
             </div>
         </body>
