@@ -1,13 +1,22 @@
 import Link from 'next/link';
+import LinkUnderline from "@/components/LinkUnderline";
 
 export default function Contact() {
     return (
-        <div>
+        <div className={"text-lg"}>
             <h1 className="text-3xl font-semibold">Contact</h1>
-            <p className="text-lg underline">Email: <Link href="mailto:kurtzjeremy126@gmail.com">kurtzjeremy126@gmail.com</Link></p>
-            <p className="text-lg underline">Linkedin: <Link href="https://www.linkedin.com/in/jeremymkurtz/">jeremymkurtz</Link></p>
-            <p className="text-lg underline">Github: <Link href="https://www.github.com/jeremymkurtz">jeremymkurtz</Link></p>
-            <p className="text-lg underline">Phone Number: <Link href="tel:+1(312)718-4905">+1[312]-718-4905</Link></p>
+            <LinkUnderline useLink={true} href={"mailto:kurtzjeremy126@gmail.com"}>
+                Email: kurtzjeremy126@gmail.com
+            </LinkUnderline>
+            <LinkUnderline useLink={true} href={"https://www.linkedin.com/in/jeremymkurtz/"}>
+                Linkedin: jeremymkurtz
+            </LinkUnderline>
+            <LinkUnderline useLink={true} href={"https://www.github.com/jeremymkurtz"}>
+                Github: jeremymkurtz
+            </LinkUnderline>
+            <LinkUnderline useLink={true} href={"tel:+1(312)718-4905"}>
+                Phone Number: +1(312)718-4905
+            </LinkUnderline>
         </div>
     )
 }

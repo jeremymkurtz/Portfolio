@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import Headshot from "../../../public/Headshot.jpg";
+import LinkUnderline from "@/components/LinkUnderline";
 export default function About() {
     return (
         <div id="about" className="flex flex-col h-full items-center mt-24 sm:mt-32 md:mt-0 md:flex-row-reverse md:items-start">
@@ -15,17 +16,8 @@ export default function About() {
                     front end. I am Indonesian American and have lived in Indonesia for twelve years then moved to the
                     U.S. in 2016. Some of my hobbies include badminton, video games, and manga.</p>
                 <div id="Resume&CV" className={"flex flex-row gap-10"}>
-                    <div id={"resume"} className={"relative group"}>
-                        <a href="resume">↓ Resume</a>
-                        <span
-                            className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary dark:bg-primaryDark transition-all group-hover:w-full"></span>
-                    </div>
-                    <div id={"CV"} className={"relative group"}>
-                        <a href={"/JMKurtz-CV.pdf"} target={"_blank"} rel="noopener noreferrer"> ↓ Curriculum
-                            Vitae</a>
-                        <span
-                            className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary dark:bg-primaryDark transition-all group-hover:w-full"></span>
-                    </div>
+                    <LinkUnderline href={"/resume"}>↓ Resume</LinkUnderline>
+                    <LinkUnderline href={"/JMKurtz-CV.pdf"}>↓ Curriculum Vitae</LinkUnderline>
                 </div>
 
             </div>

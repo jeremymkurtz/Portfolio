@@ -3,6 +3,7 @@
 import {motion} from "framer-motion";
 import Link from "next/link";
 import React from "react";
+import LinkUnderline from "@/components/LinkUnderline";
 
 const NavLink = [
     {
@@ -42,10 +43,10 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
                             variants={variants}
                             transition={{type: 'spring', stiffness: 100, damping: 20, delay: props.isOpen ? (index * 0.1 + 0.4) : index * 0.1 , duration: 0.01}}
                         >
-                            <Link href={link.href} onClick={props.toggle}>
+                            <LinkUnderline href={link.href} useLink={true}>
                                 <text className="text-sm">0{index}</text>
                                 {link.text}
-                            </Link>
+                            </LinkUnderline>
                         </motion.div>
                     </div>
                 )
