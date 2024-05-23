@@ -3,20 +3,31 @@ import Image from "next/image";
 import Headshot from "../../../public/Headshot.jpg";
 export default function About() {
     return (
-        <div id="about" className="flex flex-col h-full items-center mt-44 sm:mt-60 md:mt-0 md:flex-row-reverse md:justify-normal">
-            <div id="about-right" className={"relative px-10 lg:w-1/4 lg:h-full"}>
-                <Image src={Headshot} alt={"headshot"} className={"rounded-[48px] sm:rounded-3xl lg:w-[350px] lg:absolute lg:top-0 lg:right-0"}/>
+        <div id="about" className="flex flex-col h-full items-center mt-24 sm:mt-32 md:mt-0 md:flex-row-reverse md:items-start">
+            <div id="about-right" className={"relative w-full px-7 sm:px-12 md:pr-0 md:w-1/2 lg:w-2/4 md:h-full"}>
+                <Image src={Headshot} alt={"headshot"} className={" rounded-[48px] sm:w-full sm:rounded-3xl md:rounded-t-none md:rounded-br-none lg:w-[350px] md:absolute md:top-0 md:right-0"}/>
             </div>
-            <div id="about-left" className={"flex flex-col gap-2 pl-7 sm:pl-12 md:pl-24 lg:pl-52 w-full md:w-1/2 lg:w-3/4 md:pt-72"}>
-                <h1 className="text-4xl font-semibold">About</h1>
-                <p className="text-md">Hey my name is Jeremy. I am a computer science student at Worcester Polytechnic
+            <div id="about-left" className={"flex flex-col gap-2 px-7 pt-7 sm:px-12 sm:pt-10 md:pl-24 md:pr-12 md:pt-32 lg:pt-52  lg:pl-24 xl:48 w-full lg:w-3/4 "}>
+                <h1 className="text-4xl font-semibold uppercase">About</h1>
+                <hr className={"border-[1.5px] border-primary dark:border-primaryDark"}/>
+                <p className="text-md w-full xl:w-3/4">Hey my name is Jeremy. I am a computer science student at Worcester Polytechnic
                     Institute class of 2026. My goal in the future is to become a full stack developer with a focus on
                     front end. I am Indonesian American and have lived in Indonesia for twelve years then moved to the
                     U.S. in 2016. Some of my hobbies include badminton, video games, and manga.</p>
-                <div className={"h-20"}/>
-                <a href="resume" className={"underline"}>Resume</a>
-                <a href={"/JMKurtz-CV.pdf"} target={"_blank"} rel="noopener noreferrer" className={"underline"}>Curriculum
-                    Vitae</a>
+                <div id="Resume&CV" className={"flex flex-row gap-10"}>
+                    <div id={"resume"} className={"relative group"}>
+                        <a href="resume">↓ Resume</a>
+                        <span
+                            className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary dark:bg-primaryDark transition-all group-hover:w-full"></span>
+                    </div>
+                    <div id={"CV"} className={"relative group"}>
+                        <a href={"/JMKurtz-CV.pdf"} target={"_blank"} rel="noopener noreferrer"> ↓ Curriculum
+                            Vitae</a>
+                        <span
+                            className="absolute left-0 bottom-0 w-0 h-0.5 bg-primary dark:bg-primaryDark transition-all group-hover:w-full"></span>
+                    </div>
+                </div>
+
             </div>
 
         </div>
