@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import LinkUnderline from "@/components/LinkUnderline";
 
 export default function Contact() {
