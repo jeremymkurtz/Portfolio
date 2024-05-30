@@ -27,11 +27,10 @@ export default function RootLayout({
               >
         
         <Providers>
-            {/* <UserInterface/> */}
-            {children}
-             {/* <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
-            
-            </div> */}
+            <UserInterface/>
+             <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
+                {children}
+            </div>
         </Providers>
  
         </body>
