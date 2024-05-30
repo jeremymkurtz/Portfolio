@@ -8,8 +8,8 @@ import type { Viewport } from 'next'
  
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f8f8' },
-    { media: '(prefers-color-scheme: dark)', color: '#212529' },
+    { media: '(prefers-color-scheme: light)', color: '#F3F2F9' },
+    { media: '(prefers-color-scheme: dark)', color: '#2b2b33' },
   ],
   colorScheme: 'dark',
 }
