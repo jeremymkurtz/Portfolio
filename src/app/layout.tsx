@@ -22,15 +22,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.variable} ${anybody.variable} bg-background dark:bg-backgroundDark`}
+        <body className={`${inter.variable} ${anybody.variable} h-svh bg-background dark:bg-backgroundDark`}
               style={{WebkitOverflowScrolling: 'auto'}}
               >
         
         <Providers>
             <UserInterface/>
-             <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
+             <main className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
                 {children}
-            </div>
+            </main>
         </Providers>
  
         </body>
