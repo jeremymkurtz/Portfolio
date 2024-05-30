@@ -28,9 +28,10 @@ export default function RootLayout({
         
         <Providers>
             <UserInterface/>
-             <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
-                {children}
-            </div>
+            {children}
+             {/* <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
+            
+            </div> */}
         </Providers>
  
         </body>
