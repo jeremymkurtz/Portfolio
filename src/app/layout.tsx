@@ -7,13 +7,13 @@ import {anybody, inter} from "./fonts";
 import type { Viewport } from 'next'
 import { Providers } from './providers'
 
-// export const viewport: Viewport = {
-//   themeColor: [
-//     { media: '(prefers-color-scheme: light)', color: '#F3F2F9' },
-//     { media: '(prefers-color-scheme: dark)', color: '#2b2b33' },
-//   ],
-//   colorScheme: 'dark',
-// }
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#F3F2F9' },
+    { media: '(prefers-color-scheme: dark)', color: '#2b2b33' },
+  ],
+  colorScheme: 'dark',
+}
 
 export const metadata: Metadata = {
     title: "Jeremy Kurtz",
@@ -29,7 +29,7 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
         <body className={`${inter.variable} ${anybody.variable} bg-background dark:bg-backgroundDark w-screen h-screen`}
-            //   style={{WebkitOverflowScrolling: 'auto'}}
+              style={{WebkitOverflowScrolling: 'auto'}}
               >
         
         <Providers>
