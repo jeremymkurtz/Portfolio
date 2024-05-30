@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.variable} ${anybody.variable} bg-background dark:bg-backgroundDark w-screen h-screen`}
+        <body className={`${inter.variable} ${anybody.variable} bg-background dark:bg-backgroundDark`}
               style={{WebkitOverflowScrolling: 'auto'}}
               >
         
