@@ -27,7 +27,7 @@ export default function RootLayout({
               >
         
         <Providers>
-            <UserInterface/>
+            {/* <UserInterface/> */}
             {children}
              {/* <div className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
             
