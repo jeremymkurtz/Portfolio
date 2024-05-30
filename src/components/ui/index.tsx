@@ -18,7 +18,7 @@ const UserInterface = () => {
                     <div id={"left"} className={"flex flex-row"}>
                         <Logo/>
                     </div>
-                    <div id={"right"} className={"flex flex-row items-center justify-content space-x-6"}>
+                    <div id={"right"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <ThemeToggle size={20}/>
                         <Nav size={40} toggle={toggle} isOpen={isOpen}/>
                     </div>
