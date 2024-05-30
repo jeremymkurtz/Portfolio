@@ -4,7 +4,15 @@ import "./globals.css";
 import React from "react";
 import UserInterface from "../components/ui";
 import {anybody, inter} from "./fonts";
-
+import type { Viewport } from 'next'
+ 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#f8f8f8' },
+    { media: '(prefers-color-scheme: dark)', color: '#212529' },
+  ],
+  colorScheme: 'dark',
+}
 
 export const metadata: Metadata = {
     title: "Jeremy Kurtz",
