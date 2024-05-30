@@ -7,13 +7,7 @@ import {anybody, inter} from "./fonts";
 import type { Viewport } from 'next'
 import { Providers } from './providers'
 
-export const viewport: Viewport = {
-  themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#F3F2F9' },
-    { media: '(prefers-color-scheme: dark)', color: '#2b2b33' },
-  ],
-  colorScheme: 'dark',
-}
+
 
 export const metadata: Metadata = {
     title: "Jeremy Kurtz",
