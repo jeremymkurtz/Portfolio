@@ -3,25 +3,25 @@
 import {motion} from "framer-motion";
 import React from "react";
 import Link from "next/link";
-import WidenAnimator from "@/components/WidenAnimator";
+import WidenText from "@/components/WidenAnimator";
 
 const NavLink = [
     {
         href: "/",
-        text: <div className={"trigger flex flex-row h-fit"}>H<h1 className={"h-fit wide"}>O</h1>ME</div>,
+        text: <WidenText text={"Home"} indexes={[1]} animate={true} />,
 
     },
     {
         href: "/projects",
-        text: <WidenAnimator text={"Work"} indexes={[2]}/>
+        text: <WidenText text={"Work"} indexes={[2]} animate={true} />
     },
     {
         href: "/about",
-        text: <WidenAnimator text={"About"} indexes={[1, 4]}/>
+        text: <WidenText text={"About"} indexes={[1, 4]} animate={true}/>
     },
     {
         href: "/contact",
-        text: <WidenAnimator text={"Contact"} indexes={[5]}/>
+        text: <WidenText text={"Contact"} indexes={[5]} animate={true}/>
     }
 ]
 
