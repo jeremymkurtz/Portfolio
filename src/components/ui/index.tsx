@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useMenuContext } from "@/contexts/MenuContext";
 import Menu from "@/components/ui/navigation/Menu";
 import Nav from "@/components/ui/navigation/header/Nav";
 import ThemeToggle from "@/components/ui/navigation/header/ThemeToggle";
@@ -7,10 +7,9 @@ import Logo from "@/components/ui/navigation/header/logo";
 
 
 const UserInterface = () => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => {
-        setIsOpen(!isOpen);
-    };
+    const{toggleMenu, isOpen} = useMenuContext();
+ 
+
     return (
         <>
             <header className={"fixed z-50 top-6 sm:top-12 lg:top-24 left-0 right-0"}>
@@ -20,11 +19,11 @@ const UserInterface = () => {
                     </div>
                     <div id={"right"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <ThemeToggle size={20}/>
-                        <Nav size={40} toggle={toggle} isOpen={isOpen}/>
+                        <Nav size={40} toggle={toggleMenu} isOpen={isOpen}/>
                     </div>
                 </div>
             </header>
-            <Menu isOpen={isOpen} toggle={toggle} />
+            <Menu isOpen={isOpen} toggle={toggleMenu} />
         </>
     );
 };
