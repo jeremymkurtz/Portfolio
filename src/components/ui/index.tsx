@@ -7,7 +7,7 @@ import Logo from "@/components/ui/navigation/header/logo";
 
 
 const UserInterface = () => {
-    const{toggleMenu, isOpen} = useMenuContext();
+    const{toggleMenu, menuIsOpen} = useMenuContext();
  
 
     return (
@@ -19,11 +19,11 @@ const UserInterface = () => {
                     </div>
                     <div id={"right"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <ThemeToggle size={20}/>
-                        <Nav size={40} toggle={toggleMenu} isOpen={isOpen}/>
+                        <Nav size={40} toggle={toggleMenu} isOpen={menuIsOpen}/>
                     </div>
                 </div>
             </header>
-            <Menu isOpen={isOpen} toggle={toggleMenu} />
+            <Menu isOpen={menuIsOpen} toggle={toggleMenu} />
         </>
     );
 };
