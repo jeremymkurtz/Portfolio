@@ -6,6 +6,7 @@ import UserInterface from "../components/ui";
 import {anybody, inter} from "./fonts";
 import type { Viewport } from 'next'
 import { Providers } from './providers'
+import Template from "./template";
 
 
 
@@ -29,7 +30,9 @@ export default function RootLayout({
         <Providers>
             <UserInterface/>
              <main className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
-                {children}
+                <Template>
+                    {children}
+                </Template>
             </main>
         </Providers>
  
