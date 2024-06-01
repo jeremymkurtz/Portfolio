@@ -79,8 +79,8 @@ export default function Menu(props: { toggle: () => void, isOpen: boolean }) {
         <motion.div
             id="menu"
             className={`flex font-Anybody font-black uppercase text-primary dark:text-primaryDark z-20 top-0 left-0 fixed h-full w-full pointer-events-auto items-center sm:justify-center md:justify-start ${display}`}
-            style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
-            animate={{ opacity: props.isOpen ? 1 : 0 ,background: props.isOpen ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0)"}} //DO NOT DELETE BACKGROUND INTRODUCES BLIP
+            // style={{WebkitBackdropFilter: "blur(5px)", backdropFilter: "blur(5px)"}}
+            animate={{ opacity: props.isOpen ? 1 : 0}} //DO NOT DELETE BACKGROUND INTRODUCES BLIP
             transition={{ duration: props.isOpen ? 0.4 :1.2, onComplete: handleAnimationComplete }}
             onClick={props.toggle}
         >
