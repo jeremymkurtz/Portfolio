@@ -1,4 +1,4 @@
-import WidenText from "@/components/WidenAnimator";
+import WidenText from "@/components/text/WidenAnimator";
 
 export default function Work(){
     return (

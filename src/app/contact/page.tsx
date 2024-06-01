@@ -1,5 +1,5 @@
-import LinkUnderline from "@/components/LinkUnderline";
-import WidenText from "@/components/WidenAnimator";
+import LinkUnderline from "@/components/text/LinkUnderline";
+import WidenText from "@/components/text/WidenAnimator";
 import {Example} from "@/components/contact/ClipPathLinks";
 
 export default function Contact() {
