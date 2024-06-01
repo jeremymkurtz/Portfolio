@@ -1,8 +1,12 @@
 "use client"
 import Image from "next/image";
 import Headshot from "../../../public/Headshot.jpg";
-import LinkUnderline from "@/components/LinkUnderline";
-import WidenText from "@/components/WidenAnimator";
+import LinkUnderline from "@/components/text/LinkUnderline";
+import WidenText from "@/components/text/WidenAnimator";
+import { SlArrowDownCircle } from "react-icons/sl";
+
+const DownArrow = <SlArrowDownCircle className="inline" />
+
 export default function About() {
     return (
         <div id="about" className="flex flex-col h-full items-center mt-36 sm:mt-48 md:mt-0 md:flex-row-reverse md:items-start">
@@ -17,8 +21,8 @@ export default function About() {
                     front end. I am Indonesian American and have lived in Indonesia for twelve years then moved to the
                     U.S. in 2016. Some of my hobbies include badminton, video games, and manga.</p>
                 <div id="Resume&CV" className={"flex flex-row gap-10"}>
-                    <LinkUnderline href={"/resume"}>↓ Resume</LinkUnderline>
-                    <LinkUnderline href={"/JMKurtz-CV.pdf"}>↓ Curriculum Vitae</LinkUnderline>
+                    <LinkUnderline href={"/resume"}>{DownArrow} Resume</LinkUnderline>
+                    <LinkUnderline href={"/JMKurtz-CV.pdf"}>{DownArrow} Curriculum Vitae</LinkUnderline>
                 </div>
 
             </div>
