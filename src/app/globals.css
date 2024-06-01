@@ -19,11 +19,13 @@
 :root {
     --radial-gradient-background: 250, 250, 250;
     --solid-color-background: 96, 104, 135;
-    --overlay-color: 255, 255, 255;
+    --overlay-color: 96, 104, 135;
+    --page-bar: theme('colors.primary');
 }
 
-html.light {
-        --overlay-color: 96, 104, 135;
+html.dark {
+        --overlay-color: 255, 255, 255;
+        --page-bar: theme('colors.primaryDark');
     }
 
 

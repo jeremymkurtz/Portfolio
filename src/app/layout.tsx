@@ -7,6 +7,7 @@ import {anybody, inter, jakarta} from "./fonts";
 import type { Viewport } from 'next'
 import { Providers } from './providers'
 import Template from "./template";
+import PageLoading from "@/components/PageLoading";
 
 
 
@@ -26,7 +27,7 @@ export default function RootLayout({
         <body className={`${inter.variable} ${anybody.variable} ${jakarta.variable} h-svh bg-background dark:bg-backgroundDark`}
               style={{WebkitOverflowScrolling: 'auto'}}
               >
-        
+               <PageLoading/> 
         <Providers>
             <UserInterface/>
              <main className={" text-primary dark:text-primaryDark w-full h-full flex justify-center items-center "}>
