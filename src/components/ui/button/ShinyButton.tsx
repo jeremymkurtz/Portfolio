@@ -4,8 +4,8 @@ import React, {ReactNode} from "react";
 function ShinyButton(props:{cn?:string, children: ReactNode }) {
     return (
         <motion.button
-            initial={{ "--x": "100%", scale: 1 }} // Its not broken
-            animate={{ "--x": "-100%" }} // Its not broken
+            initial={{ "--x": "100%", scale: 1 } as any} // Its not broken
+            animate={{ "--x": "-100%" } as any} // Its not broken
             whileTap={{ scale: 0.97 }}
             transition={{
                 repeat: Infinity,
