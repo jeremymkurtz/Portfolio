@@ -23,7 +23,7 @@ export default function Home() {
       </div>
        
        
-      <ShinyButton cn="w-fit font-jakarta"><h3>I don't do anything yet</h3></ShinyButton>
+      <ShinyButton cn="w-fit font-jakarta"><h3>I dont do anything yet</h3></ShinyButton>
    </div>
    
    </PageWrapper>
