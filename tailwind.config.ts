@@ -16,6 +16,7 @@ const config: Config = {
         inter: ['var(--font-inter)'],
         anybody: ['var(--font-anybody)'],
         Anybody: ['anybody','var(--font-anybody)'],
+        jakarta: ['var(--font-jakarta)'],
       },
       colors: {
         "primary": '#606887',

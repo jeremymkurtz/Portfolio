@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 import UserInterface from "../components/ui";
-import {anybody, inter} from "./fonts";
+import {anybody, inter, jakarta} from "./fonts";
 import type { Viewport } from 'next'
 import { Providers } from './providers'
 import Template from "./template";
@@ -23,7 +23,7 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-        <body className={`${inter.variable} ${anybody.variable} h-svh bg-background dark:bg-backgroundDark`}
+        <body className={`${inter.variable} ${anybody.variable} ${jakarta.variable} h-svh bg-background dark:bg-backgroundDark`}
               style={{WebkitOverflowScrolling: 'auto'}}
               >
         
