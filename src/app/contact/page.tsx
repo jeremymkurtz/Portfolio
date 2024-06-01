@@ -21,7 +21,7 @@ export default function Contact() {
                 </LinkUnderline>
             </div>
             
-            <Example />
+            {/* <Example /> */}
         </div>
     )
 }
