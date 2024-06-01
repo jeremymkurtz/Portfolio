@@ -3,7 +3,7 @@
 import {motion} from "framer-motion";
 import React from "react";
 import Link from "next/link";
-import WidenText from "@/components/WidenAnimator";
+import WidenText from "@/components/text/WidenAnimator";
 
 const NavLink = [
     {
@@ -47,7 +47,7 @@ function MenuContent(props:{isOpen: boolean, toggle: () => void}) {
 
                             <Link href={link.href} onClick={props.toggle}>
                                 <div className="flex flex-row">
-                                    <h2 className="text-sm font-bold bottom-[8px] md:bottom-[7.5px] self-end relative">0{index}</h2>
+                                    <h2 className="text-sm font-bold bottom-[8px] md:bottom-[7.5px] lg:bottom-[10px] self-end relative">0{index}</h2>
                                     {link.text}
                                 </div>
                             </Link>
