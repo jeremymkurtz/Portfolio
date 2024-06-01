@@ -9,7 +9,7 @@ const DownArrow = <SlArrowDownCircle className="inline" />
 
 export default function About() {
     return (
-        <div id="about" className="flex flex-col h-full items-center mt-36 sm:mt-48 md:mt-0 md:flex-row-reverse md:items-start">
+        <div id="about" className="flex flex-col h-full items-center mt-20 sm:mt-48 md:mt-0 md:flex-row-reverse md:items-start">
             <div id="about-right" className={"relative w-full px-7 sm:px-12 md:pr-0 md:w-1/2 lg:w-2/4 md:h-full"}>
                 <Image src={Headshot} alt={"headshot"} className={" rounded-[48px] sm:w-full sm:rounded-3xl md:rounded-t-none md:rounded-br-none lg:w-[350px] md:absolute md:top-0 md:right-0"}/>
             </div>
