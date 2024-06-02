@@ -9,13 +9,17 @@ const RightArrow = <SlArrowRightCircle className="inline" />
 
 
 export default function Home() {
-  const roles = ["Full Stack Dev", "designer", "student", "badminton player", "gamer", "manga reader"]
+  const roles = ["Front End", "Back End", "Designer"]
   return (
     <PageWrapper >
-   <div className="text-left font-black font-Anybody uppercase flex flex-col gap-4">
-      <div>
-        <h1 className="text-4xl font-black font-Anybody uppercase"> Hey my name is Jeremy,</h1>
-        <h1 className="text-4xl"> I am a<FlipWords words={roles} /></h1>
+   <div className="text-left font-black font-Anybody uppercase flex flex-col gap-4 justify-center sm:items-center">
+      <div className="justify-center items-center">
+        <h1 className="text-4xl font-black font-Anybody uppercase text-balance"> Hey my name is Jeremy,</h1>
+        <div className="flex flex-row w-fit">
+          <h1 className="text-4xl mr-2 w-fit">I am a </h1>
+          <FlipWords words={roles} className="text-4xl w-fit"/>
+        </div>
+       
         <div className="flex flex-row gap-4">
           <LinkUnderline href="/projects" cn="font-jakarta">{RightArrow} See my work</LinkUnderline>
           <LinkUnderline href="/about" cn="font-jakarta">{RightArrow} More about me</LinkUnderline>
