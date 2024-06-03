@@ -2,29 +2,14 @@
 import { motion } from "framer-motion";
 import {useEffect, useState} from "react";
 import { useTheme } from "next-themes";
+import {useAuroraContext} from "@/contexts/AuroraContext";
 
 export default function ThemeToggle(props:{size:number}){
-    // const [darkMode, setDarkMode] = useState(true);
+    const {AuroraOn} = useAuroraContext();
     
     const [mounted, setMounted] = useState(false);
     const {setTheme, resolvedTheme} = useTheme();
     useEffect(() => setMounted(true), []);
-       // useEffect(() => {
-    //     const theme= localStorage.getItem("theme");
-    //     if(theme === "dark"){
-    //         setDarkMode(true);
-    //     }
-    // }, []);
-
-    // useEffect(() => {
-    //     if(darkMode){
-    //         document.documentElement.classList.add("dark");
-    //         localStorage.setItem("theme", "dark");
-    //     } else {
-    //         document.documentElement.classList.remove("dark");
-    //         localStorage.setItem("theme", "light");
-    //     }
-    // }, [darkMode]);
     if(!mounted) return (
              <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
@@ -34,7 +19,7 @@ export default function ThemeToggle(props:{size:number}){
     return(
     <motion.svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17" width={props.size} height={props.size}
                     className="block icons-style mini-icons cursor-pointer" onClick={() => {
-            setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
+            setTheme(resolvedTheme === 'dark' && !AuroraOn ? 'light' : 'dark');
         }}
                     stroke={`${resolvedTheme === 'dark' ? 'var(--primaryDark)' : 'var(--primary)'}`}
                     fill={"none"}
