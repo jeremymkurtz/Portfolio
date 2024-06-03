@@ -7,6 +7,8 @@ import { SlArrowRightCircle } from "react-icons/sl";
 import { useAuroraContext } from "@/contexts/AuroraContext";
 import Sparkle from "@/components/home/sparkle";
 import {useTheme} from "next-themes";
+import SpringModal from "@/components/ui/modal";
+import {useState} from "react";
 
 const RightArrow = <SlArrowRightCircle className="inline" />
 
@@ -14,23 +16,29 @@ const RightArrow = <SlArrowRightCircle className="inline" />
 export default function Home() {
   const roles = ["Front End", "Back End", "Designer"];
 
-  const {toggleAurora} = useAuroraContext();
+  const {AuroraOn, toggleAurora} = useAuroraContext();
     const {setTheme, resolvedTheme} = useTheme();
-
+    const [modalOpen, setModalOpen] = useState(false);
     const handleAuroraClick = () => {
         toggleAurora();
         setTheme('dark');
+        if(!AuroraOn) setModalOpen(true);
+    }
+    const handleModalCancel = () => {
+        setModalOpen(false);
+        toggleAurora();
     }
   return (
     <>
         <PageWrapper >
       
-   <div className="text-left font-black font-Anybody uppercase flex flex-col gap-4 justify-center sm:items-center">
-      <div className="justify-center items-center text-3xl sm:text-4xl md:text-5xl">
-        <h1 className="text-balance flex hover:cursor-pointer" onClick={handleAuroraClick}> Hey my name is Jeremy <Sparkle>,</Sparkle></h1>
+   <div className="text-left font-black font-Anybody flex flex-col gap-4 justify-center sm:items-center">
+      <div className="w-full uppercase justify-center items-center text-3xl sm:text-4xl md:text-5xl">
+
+              <h1 className="text-balance flex flex-col lg:flex-row w-fit"> Hey my name
+                  <div className={"pl-0 lg:pl-4 flex flex-row"}> is Jeremy <Sparkle><div className="hover:cursor-pointer" onClick={handleAuroraClick}>,</div></Sparkle></div></h1>
         <div className="mx-auto">
             I am a
-
           <FlipWords words={roles} className="pl-2 md:pl-3 w-fit"/>
         </div>
        
@@ -40,11 +48,21 @@ export default function Home() {
        </div>
       </div>
        
-       
-      <ShinyButton onClick = {handleAuroraClick} className="w-fit font-jakarta"><h3>Try Aurora Mode</h3></ShinyButton>
+
+      <ShinyButton className="w-fit h-fit font-jakarta"><h3 className={"text-balance flex"}>{`I don't do anything, but something else might?`}</h3></ShinyButton>
+       <SpringModal
+           isOpen={modalOpen}
+           setIsOpen={setModalOpen}
+           handleModalClose={handleModalCancel}
+           AuroraMode={true}
+            title={"You Found Aurora Mode!"}
+           description={<p className={"font-medium font-jakarta"}>If you want to return back to either light or dark
+               mode simply press on <i className={"font-black"}>Nah, go back</i> or the comma on the home screen again.
+               Otherwise simply tap on <i className={"font-black"}>Understood!</i> </p>}
+          />
    </div>
-   
-   </PageWrapper>
+
+        </PageWrapper>
     </>
   );
 }
