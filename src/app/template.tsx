@@ -3,9 +3,10 @@
 import { motion , AnimatePresence} from "framer-motion"
 import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/contexts/MenuContext";
-import AuroraHero from "@/components/home/Aurora";
+import Aurora from "@/components/home/Aurora";
 import { useAuroraContext } from "@/contexts/AuroraContext";
 import React from "react";
+import {Meteors} from "@/components/ui/meteors";
 
 export default function Template( props:{children : React.ReactNode} ) {
     const{menuIsOpen} = useMenuContext();
@@ -14,9 +15,9 @@ export default function Template( props:{children : React.ReactNode} ) {
     const pathname = usePathname();
     return (
       <>
-          <AuroraHero className={`${AuroraOn ? "block" : "hidden"}`}/>
+          <Aurora className={`${AuroraOn ? "block" : "hidden"}`}/>
           <AnimatePresence mode="wait">
-
+              <Meteors/>
 
           {!menuIsOpen &&(
           <motion.div
