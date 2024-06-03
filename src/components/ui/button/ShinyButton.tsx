@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
 import React, {ReactNode} from "react";
 
-function ShinyButton(props:{cn?:string, children: ReactNode }) {
+function ShinyButton(props:{className?:string, children: ReactNode, onClick?:()=>void }) {
     return (
         <motion.button
+            onClick={props.onClick}
             initial={{ "--x": "100%", scale: 1 } as any} // Its not broken
             animate={{ "--x": "-100%" } as any} // Its not broken
             whileTap={{ scale: 0.97 }}
@@ -22,7 +23,7 @@ function ShinyButton(props:{cn?:string, children: ReactNode }) {
                     mass: 0.1,
                 },
             }}
-            className={`px-6 py-2 rounded-md relative dark:radial-gradient ${props.cn ? props.cn : ""}`} //radial-gradient
+            className={`px-6 py-2 rounded-md relative dark:radial-gradient ${props.className ? props.className : ""}`} //radial-gradient
         >
       <span className={`text-primary dark:text-primaryDark tracking-wide font-Anybody block relative linear-mask `}>
         {props.children}
