@@ -41,7 +41,7 @@ export default function Home() {
       </div>
        
        
-      <ShinyButton onClick = {toggleAurora} className="w-fit font-jakarta"><h3>I dont do anything yet</h3></ShinyButton>
+      <ShinyButton onClick = {handleAuroraClick} className="w-fit font-jakarta"><h3>Try Aurora Mode</h3></ShinyButton>
    </div>
    
    </PageWrapper>
