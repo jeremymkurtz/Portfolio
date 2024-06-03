@@ -39,10 +39,12 @@ export const FlipWords = ({
         initial={{
           opacity: 0,
           y: 10,
+          position: "absolute"
         }}
         animate={{
           opacity: 1,
           y: 0,
+          position: "relative"
         }}
         transition={{
           duration: 0.4,
@@ -54,10 +56,9 @@ export const FlipWords = ({
         exit={{
           opacity: 0,
           y: -40,
-          x: 40,
+          x: 0,
           filter: "blur(8px)",
-          scale: 2,
-          position: "absolute",
+          position: "fixed",
         }}
         className={cn(
           "z-10 inline-block relative text-left text-primary dark:text-primaryDark",
