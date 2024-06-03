@@ -1,3 +1,5 @@
+import { Stars } from "@react-three/drei";
+import { Canvas } from "@react-three/fiber";
 import React, { useEffect } from "react";
 import {
   useMotionTemplate,
@@ -23,14 +25,22 @@ export  default function AuroraHero(props:{className?:string, children?:React.Re
   const backgroundImage = useMotionTemplate`radial-gradient(125% 125% at 50% 0%, #020617 50%, ${color})`;
 
   return (
-    <motion.section
-      style={{
-        backgroundImage,
-      }}
-      className={`-z-50 fixed w-full h-full ${props.className ? props.className : ""}`}
-    >
-      {props.children}
-      
-    </motion.section>
+      <motion.section
+          style={{
+            backgroundImage,
+          }}
+          className={`-z-50 fixed w-full h-full ${props.className ? props.className : ""}`}
+      >
+        {props.children}
+        <div className="absolute inset-0 z-0">
+
+          <Canvas>
+
+            <Stars radius={50} count={2500} factor={4} fade speed={2}/>
+
+          </Canvas>
+
+        </div>
+      </motion.section>
   );
 };
