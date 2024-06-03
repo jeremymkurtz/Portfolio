@@ -21,14 +21,13 @@ export default function Sparkle(props:{children?:React.ReactNode}) {
                     return (
                         <motion.div
                             key={star}
+                            className={"bg-primary dark:bg-primaryDark rounded"}
                             style={{
                                 position: 'absolute',
                                 top: `${Math.random() * 65}%`,
                                 left: `${Math.random() * 100}%`,
                                 width: `${size}px`,
                                 height: `${size}px`,
-                                background: 'white',
-                                borderRadius: '50%',
                             }}
                             initial={{y: `${initialY}%`, opacity: 1}}
                             animate={{y: `${finalY}%`, opacity: 0}}
