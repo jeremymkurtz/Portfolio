@@ -5,18 +5,22 @@ import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/contexts/MenuContext";
 import AuroraHero from "@/components/home/Aurora";
 import { useAuroraContext } from "@/contexts/AuroraContext";
+import React from "react";
 
-export default function Template({ children }: { children: React.ReactNode }) {
+export default function Template( props:{children : React.ReactNode} ) {
     const{menuIsOpen} = useMenuContext();
     const{AuroraOn} = useAuroraContext();
     // const router = typeof window !== 'undefined' ? useRouter() : undefined
     const pathname = usePathname();
     return (
       <>
-        <AuroraHero className={`${AuroraOn ? "block" : "hidden"}`}/>
-        <AnimatePresence mode="wait">
+          <AuroraHero className={`${AuroraOn ? "block" : "hidden"}`}/>
+          <AnimatePresence mode="wait">
+
+
           {!menuIsOpen &&(
           <motion.div
+              id={"WA"}
           key={pathname}
            className="w-full h-full flex"
             initial={{opacity:0, y: -20}}
@@ -24,9 +28,11 @@ export default function Template({ children }: { children: React.ReactNode }) {
             exit={{opacity:0, y: -20}} 
             transition= {{ease: "easeInOut", staggerChildren: 1, duration:0.5, type:'tween'}}
             >
-          {children}
+              {props.children}
+
         </motion.div>
-          )} 
+          )}
+
       </AnimatePresence>
       </>
         // <motion.div
