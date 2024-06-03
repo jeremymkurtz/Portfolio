@@ -10,7 +10,7 @@ import {
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
-export  default function Aurora(props:{className?:string, children?:React.ReactNode}) {
+export  default function Aurora(props:{className?:string, children?:React.ReactNode, showStars?:boolean}) {
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -34,11 +34,11 @@ export  default function Aurora(props:{className?:string, children?:React.ReactN
         {props.children}
         <div className="absolute inset-0 z-0">
 
-          <Canvas className={"absolute"}>
+          {props.showStars ? <Canvas flat linear>
 
             <Stars radius={50} count={2500} factor={4} fade speed={2} />
 
-          </Canvas>
+          </Canvas> : null}
 
         </div>
       </motion.section>

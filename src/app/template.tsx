@@ -15,7 +15,7 @@ export default function Template( props:{children : React.ReactNode} ) {
     const pathname = usePathname();
     return (
       <>
-          <Aurora className={`${AuroraOn ? "block" : "hidden"}`}/>
+          <Aurora className={`${AuroraOn ? "block" : "hidden"}`} showStars={true}/>
           <AnimatePresence mode="wait">
               <Meteors/>
 
