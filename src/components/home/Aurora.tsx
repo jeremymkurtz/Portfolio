@@ -10,7 +10,7 @@ import {
 
 const COLORS_TOP = ["#13FFAA", "#1E67C6", "#CE84CF", "#DD335C"];
 
-export  default function AuroraHero(props:{className?:string, children?:React.ReactNode}) {
+export  default function Aurora(props:{className?:string, children?:React.ReactNode}) {
   const color = useMotionValue(COLORS_TOP[0]);
 
   useEffect(() => {
@@ -29,14 +29,14 @@ export  default function AuroraHero(props:{className?:string, children?:React.Re
           style={{
             backgroundImage,
           }}
-          className={`-z-50 fixed w-full h-full ${props.className ? props.className : ""}`}
+          className={`-z-50 fixed top-0 left-0 w-full h-full ${props.className ? props.className : ""}`}
       >
         {props.children}
         <div className="absolute inset-0 z-0">
 
-          <Canvas>
+          <Canvas className={"absolute"}>
 
-            <Stars radius={50} count={2500} factor={4} fade speed={2}/>
+            <Stars radius={50} count={2500} factor={4} fade speed={2} />
 
           </Canvas>
 
