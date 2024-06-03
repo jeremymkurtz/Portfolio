@@ -3,12 +3,17 @@
 import { motion , AnimatePresence} from "framer-motion"
 import { usePathname } from "next/navigation";
 import { useMenuContext } from "@/contexts/MenuContext";
+import AuroraHero from "@/components/home/Aurora";
+import { useAuroraContext } from "@/contexts/AuroraContext";
 
 export default function Template({ children }: { children: React.ReactNode }) {
     const{menuIsOpen} = useMenuContext();
+    const{AuroraOn} = useAuroraContext();
     // const router = typeof window !== 'undefined' ? useRouter() : undefined
     const pathname = usePathname();
     return (
+      <>
+        <AuroraHero className={`${AuroraOn ? "block" : "hidden"}`}/>
         <AnimatePresence mode="wait">
           {!menuIsOpen &&(
           <motion.div
@@ -23,6 +28,7 @@ export default function Template({ children }: { children: React.ReactNode }) {
         </motion.div>
           )} 
       </AnimatePresence>
+      </>
         // <motion.div
         //     className="w-full h-full flex justify-center items-center"
         //     initial={{opacity:0, y: -20}}
