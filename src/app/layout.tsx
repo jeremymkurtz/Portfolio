@@ -18,11 +18,15 @@ export const metadata: Metadata = {
     icons: {
         icon: [
             {
+                rel: "icon",
+                type: 'image/png',
                 media: '(prefers-color-scheme: light)',
                 url: '../../public/images/JK-Circle Modern-extrasmall.png',
                 href: '../../public/images/JK-Circle Modern-extrasmall.png',
             },
             {
+                rel: "icon",
+                type: 'image/png',
                 media: '(prefers-color-scheme: dark)',
                 url: '../../public/images/JK-Circle Modern-extrasmall.png',
                 href: '../../public/images/JK-Circle Modern-extrasmall.png',
