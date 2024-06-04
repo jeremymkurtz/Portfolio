@@ -1,6 +1,6 @@
 "use client"
 import Image from "next/image";
-import Headshot from "../../../public/Headshot.jpg";
+import Headshot from "../../../public/images/Headshot.jpg";
 import LinkUnderline from "@/components/text/LinkUnderline";
 import WidenText from "@/components/text/WidenAnimator";
 import { SlArrowDownCircle } from "react-icons/sl";
@@ -35,7 +35,5 @@ export default function About() {
                 </div>
             </div>
         </>
-
-
     )
 }
