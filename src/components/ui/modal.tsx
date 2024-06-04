@@ -23,6 +23,7 @@ export default function SpringModal(props:{
     isOpen:boolean,
     setIsOpen:Dispatch<SetStateAction<boolean>>,
     handleModalClose?:()=>void,
+    icon?: React.ReactNode,
     AuroraMode?:boolean,
     title?:string,
     description?:React.ReactNode,
@@ -53,7 +54,7 @@ export default function SpringModal(props:{
                         <FiAlertCircle className="text-white/10 rotate-12 text-[250px] absolute z-0 -top-24 -left-24" />
                         <div className="relative z-10">
                             <div className="bg-white w-16 h-16 mb-2 rounded-full text-3xl text-indigo-600 grid place-items-center mx-auto">
-                                <FiAlertCircle />
+                                {props.icon ? props.icon : <FiAlertCircle />}
                             </div>
                             <h3 className="text-3xl font-bold text-center mb-2">
                                 {props.title ? props.title : "One more thing!"}
