@@ -10,16 +10,22 @@ import UseLocalStorage from "@/hooks/useLocalStorage";
 
 
 import React, { useEffect, useState } from "react";
+import {useTheme} from "next-themes";
 
 const UserInterface = () => {
     const { toggleMenu, menuIsOpen } = useMenuContext();
     const { AuroraFound,toggleAurora } = useAuroraContext();
     const [mounted, setMounted] = useState(false);
-
+    const {setTheme} = useTheme();
     useEffect(() => {
         // This will run after the component has mounted
         setMounted(true);
     }, []);
+
+    const handleAuroraClick = () => {
+        setTheme("dark");
+        toggleAurora();
+    }
 
     return (
         <>
@@ -27,7 +33,7 @@ const UserInterface = () => {
                 <div id={"header content"} className={"flex flex-row px-7 sm:px-12 md:px-24 justify-between"}>
                     <div id={"left"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <Logo/>
-                        {mounted && AuroraFound ? <AuroraIcon onClick={toggleAurora}/> : null}
+                        {mounted && AuroraFound ? <AuroraIcon onClick={handleAuroraClick}/> : null}
                     </div>
                     <div id={"right"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <ThemeToggle size={20}/>

@@ -19,7 +19,9 @@ export default function Home() {
   const {AuroraOn, toggleAurora, handleFoundAurora} = useAuroraContext();
 
     const [modalOpen, setModalOpen] = useState(false);
+    const {setTheme} = useTheme();
     const handleAuroraClick = () => {
+        setTheme("dark");
         toggleAurora();
         if(!AuroraOn) setModalOpen(true);
         handleFoundAurora();

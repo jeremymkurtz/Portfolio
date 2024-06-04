@@ -12,24 +12,19 @@ const AuroraContext = createContext({
 });
 
 export function AuroraProvider({ children}: {children:React.ReactNode} ){
-    const [value, setValue] = UseLocalStorage('foundAurora', "");
-    const {setTheme} = useTheme();
-    const saveToLocalStorage = () => {
-        setValue(foundAurora)
-    }
+    const [value, setValue] = UseLocalStorage('foundAurora', false);
 
     let [aurora, setAurora] = useState(false);
 
   let toggleAuroraFunc = () => {
     setAurora(!aurora);
-    setTheme("dark");
   };
 
-  let [foundAurora, setFoundAurora] = useState(value);
+  const [foundAurora, setFoundAurora] = useState(value);
 
-  let handleFoundAuroraFunc = () => {
+let handleFoundAuroraFunc = () => {
     setFoundAurora(true);
-    saveToLocalStorage();
+    setValue(true); //save to local storage
 }
 
 

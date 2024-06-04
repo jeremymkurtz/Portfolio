@@ -7,7 +7,12 @@ const useLocalStorage = (key: string, initialValue: any) => {
             const value = window.localStorage.getItem(key)
             // Check if the local storage already has any values,
             // otherwise initialize it with the passed initialValue
-            return value ? JSON.parse(value) : initialValue
+            if (value) {
+                return JSON.parse(value)
+            } else {
+                window.localStorage.setItem(key, JSON.stringify(initialValue))
+                return initialValue
+            }
         } catch (error) {
             console.log(error)
         }
