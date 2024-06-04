@@ -61,7 +61,7 @@ export default function Home() {
            icon={<AuroraIcon size={40} className={"dark:fill-indigo-600"} className2={"dark:fill-background"}/>}
             title={"You Found Aurora Mode!"}
            description={<p className={"font-medium font-jakarta inline"}>If you want to return back to either light or dark
-               mode simply press on <i className={"font-black"}>Nah, go back</i> or the comma on the home screen again. Alternatively you can press on the <AuroraIcon size={30} inline={true} className={"mx-1"}/> icon on the top left corner of the screen.
+               mode simply press on <i className={"font-black"}>Nah, go back</i> or the comma on the home screen again. Alternatively you can press on the <AuroraIcon size={30} inline={true} /> icon on the top left corner of the screen.
                Otherwise simply tap on <i className={"font-black"}>Understood!</i> </p>}
           />
    </div>

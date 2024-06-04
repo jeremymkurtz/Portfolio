@@ -8,10 +8,10 @@ const SvgComponent = (props: {size?:number, inline?:boolean, className?:string, 
         viewBox="0 0 16 16"
         width={props.size ? props.size : 35}
         height={props.size ? props.size : 35}
-        className={`hover:cursor-pointer ${props.inline ? "inline-block" : ""} `}
+        className={`${props.onClick ? "hover:cursor-pointer" : ""} ${props.inline ? "inline-block mx-1" : ""} `}
         onClick={props.onClick ? props.onClick : () => {}}
     >
-        <g className={`fill-primary k stroke-0 ${props.className ? props.className : "dark:fill-primaryDar"}`}>
+        <g className={`fill-primary stroke-0 ${props.className ? props.className : "dark:fill-primaryDark"}`}>
             {/*top*/}
             <path
                 d="M15.66 2.26C13.13.07 11.42-.1 10.34.12 8.6.48 8.2 1.92 6.59 1.84 4.97 1.76 4.49.24 2.51.02 1.49-.09.61.21.04.47L0 5.91c.11-.09.22-.19.35-.25 1.07-.53 2.26.1 3.51.76 1.1.58 2.24 1.17 3.28.94a.287.287 0 0 1-.17-.26V2.55c0-.17.14-.32.32-.32s.32.14.32.32V7.1s-.03.09-.05.13c.34-.16.51-.37.7-.63.22-.29.47-.63 1-.91 1.48-.77 3.64-.3 6.42 1.36V2.26ZM3.64 3.65c0 .17-.14.32-.32.32S3 3.83 3 3.65V1.72c0-.17.14-.32.32-.32s.32.14.32.32v1.93Z"
@@ -32,7 +32,7 @@ const SvgComponent = (props: {size?:number, inline?:boolean, className?:string, 
             />
         </g>
         {/*Outline*/}
-        <path className={`fill-background  stroke-0 ${props.className2 ? props.className2 : "dark:fill-backgroundDark"}`}
+        <path className={`fill-background stroke-0 ${props.className2 ? props.className2 : "dark:fill-backgroundDark"}`}
               d="M12.96 3c0 1.34.81 2.42 1.83 2.47-1.01.04-1.82 1.12-1.83 2.45 0-1.34-.81-2.42-1.83-2.47 1.01-.04 1.82-1.12 1.83-2.45m0-.5c-.28 0-.5.22-.5.5 0 1.05-.61 1.92-1.35 1.95-.27.01-.48.23-.48.5s.21.49.48.5c.75.03 1.35.91 1.35 1.97 0 .28.22.5.5.5s.5-.22.5-.5c0-1.05.61-1.92 1.35-1.95.27-.01.48-.23.48-.5s-.21-.49-.48-.5c-.75-.03-1.35-.91-1.35-1.97 0-.28-.22-.5-.5-.5Z"
         />
 
