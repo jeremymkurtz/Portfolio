@@ -1,6 +1,6 @@
 import * as React from "react"
 import { SVGProps } from "react"
-const SvgComponent = (props: {size?:number, inline?:boolean, className?:string, className2?:string, onClick?:() => {}}) => (
+const SvgComponent = (props: {size?:number, inline?:boolean, className?:string, className2?:string, onClick?:() => void}) => (
     <svg
         xmlns="http://www.w3.org/2000/svg"
         id="Layer_1"

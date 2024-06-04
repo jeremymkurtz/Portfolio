@@ -33,7 +33,7 @@ const UserInterface = () => {
                 <div id={"header content"} className={"flex flex-row px-7 sm:px-12 md:px-24 justify-between"}>
                     <div id={"left"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <Logo/>
-                        {mounted && AuroraFound ? <AuroraIcon onClick={() => handleAuroraClick}/> : null}
+                        {mounted && AuroraFound ? <AuroraIcon onClick={handleAuroraClick}/> : null}
                     </div>
                     <div id={"right"} className={"w-fit flex flex-row items-center justify-content space-x-6"}>
                         <ThemeToggle size={20}/>
