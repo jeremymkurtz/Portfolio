@@ -16,13 +16,13 @@ const RightArrow = <SlArrowRightCircle className="inline" />
 export default function Home() {
   const roles = ["Front End", "Back End", "Designer"];
 
-  const {AuroraOn, toggleAurora} = useAuroraContext();
-    const {setTheme, resolvedTheme} = useTheme();
+  const {AuroraOn, toggleAurora, handleFoundAurora} = useAuroraContext();
+
     const [modalOpen, setModalOpen] = useState(false);
     const handleAuroraClick = () => {
         toggleAurora();
-        setTheme('dark');
         if(!AuroraOn) setModalOpen(true);
+        handleFoundAurora();
     }
     const handleModalCancel = () => {
         setModalOpen(false);
