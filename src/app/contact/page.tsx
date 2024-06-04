@@ -23,8 +23,6 @@ export default function Contact() {
                         Phone Number: +1(312)718-4905
                     </LinkUnderline>
                 </div>
-
-                {/* <Example /> */}
             </div>
         </>
 

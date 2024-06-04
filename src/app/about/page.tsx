@@ -32,11 +32,8 @@ export default function About() {
                         <LinkUnderline href={"/resume"}>{DownArrow} Resume</LinkUnderline>
                         <LinkUnderline href={"/JMKurtz-CV.pdf"}>{DownArrow} Curriculum Vitae</LinkUnderline>
                     </div>
-
                 </div>
-
             </div>
         </>
-
     )
 }
